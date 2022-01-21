@@ -24,6 +24,19 @@ function HomePage(props) {
   return <MeetupList meetups={props.meetups} />
 }
 
+// Reserved function name similar to getStaticProps. The difference is that this function will not run during the build process but always on the server after deployment. Code written here will always run on the server, never on the client
+// export async function getServerSideProps(context) {
+//   // Request object and response object
+//   const req = context.req
+//   const res = context.res
+
+//   // Must always return an object
+//   // No need to use the revalidate key as it doesn't make sense since this function runs for every incoming request unlike getStaticProps(), where it runs for a single incoming request
+//   return {
+//     props: { meetups: DUMMY_MEETUPS },
+//   }
+// }
+
 // This only works on files under the pages directory and not on the components directory. This
 // reserved function name executes during the pre-rendering process when NextJs finds this
 // function. It will first call getStaticProps() before it calls the component function. Its job
