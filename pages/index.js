@@ -37,6 +37,8 @@ export function getStaticProps() {
   // Any data passed to the props key is received by the props parameter of the component function
   return {
     props: { meetups: DUMMY_MEETUPS },
+    // Number of seconds NextJs will wait until it re-generates this page for an incoming request. If a number is supplied, this page will not only be generated during the build process, but also for every couple of seconds on the server, if there are requests for this page. This is useful if you need data to be fetched from the API so that data is never older than the number supplied here. Eg. if your data changes every hour, you can set this to 3600. This is also useful when building the app for production, so that you don't re-deploy every often.
+    revalidate: 10
   }
 }
 
